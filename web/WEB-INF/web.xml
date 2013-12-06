@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	 version="2.4">
+ <context-param>
+        <param-name>ADMINCHAT_PATH</param-name>
+        <param-value>/vlearning/AdminChatServlet</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>ROOMLIST_PATH</param-name>
+        <param-value>/vlearning/RoomListServlet</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>CHROOM_PATH</param-name>
+        <param-value>/vlearning/ChRoomServlet</param-value>
+    </context-param>
+    
+    <servlet>
+        <servlet-name>MainChatServlet</servlet-name>
+        <servlet-class>kogent.MainChatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminChatServlet</servlet-name>
+        <servlet-class>kogent.AdminChatServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChatRoomEntry</servlet-name>
+        <servlet-class>kogent.ChatRoomEntry</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChatRooms</servlet-name>
+        <servlet-class>kogent.ChatRooms</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChRoomServlet</servlet-name>
+        <servlet-class>kogent.ChRoomServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RoomListServlet</servlet-name>
+        <servlet-class>kogent.RoomListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainChatServlet</servlet-name>
+        <url-pattern>/MainChatServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminChatServlet</servlet-name>
+        <url-pattern>/AdminChatServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChatRoomEntry</servlet-name>
+        <url-pattern>/ChatRoomEntry</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChatRooms</servlet-name>
+        <url-pattern>/ChatRooms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChRoomServlet</servlet-name>
+        <url-pattern>/ChRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomListServlet</servlet-name>
+        <url-pattern>/RoomListServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+	<welcome-file>
+            MainChatServlet
+        </welcome-file>
+    </welcome-file-list>
+</web-app>

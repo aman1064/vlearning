@@ -1,0 +1,940 @@
+Consider a <tt>String</tt> that is constructed by calling
+<p><tt>String s = new String("AA\tBB\n");</tt>
+<p>Which of the calls listed here modify the string?
+C-----
+SE
+A-----
+A) <tt>s.trim();<tt>
+A-----
+B) <tt>s.toUpperCase();</tt>
+A-----
+C) <tt>s.toLowerCase();</tt>
+A-----
+D) <tt>s.substring(2);</tt>
+A-----
+E) None of the above
+E-----
+Strings are immutable. There are no method calls that modify them.
+Q-----
+What is the value of <tt>Math.floor(-Math.PI)</tt> ?
+C-----
+SD
+A-----
+A) 3
+A-----
+B) 4
+A-----
+C) -3
+A-----
+D) -4
+E-----
+The <tt>floor()</tt> method returns the largest integer that is less than or equal to its argument. Here the argument is -3.14159...
+Q-----
+What does the following code print out?
+<tt><pre>
+1. class Cases {
+2.   public static void main(String[] args) {
+3.     String s = "abcde";
+4.     s.toUpperCase();
+5.     System.out.println(s);
+6.   }
+7. }
+</pre></tt>
+C-----
+SA
+A-----
+A) abcde
+A-----
+B) ABCDE
+E-----
+Strings are immutable. The call on line 4 does not modify <tt>s</tt>; it creates a new string, which shortly gets garbage collected because we keep no references to it.
+Q-----
+What happens when you attempt to compile and execute the following code?
+<tt><pre>
+1. class A {
+2.   public static void main(String[] args) {
+3.     Integer i = new Integer(5);
+4.     i.setIntValue(i.intValue()+1);
+5.     System.out.println("i = " + i);
+6.   }
+7. }
+</pre></tt>
+C-----
+SA
+A-----
+A) Compiler error.
+A-----
+B) The code prints out "i = 5".
+A-----
+C) The code prints out "i = 6".
+E-----
+The <tt>Integer</tt> class is immutable. After construction, the value inside cannot be changed. There is no "setIntValue()" method.
+Q-----
+What is the value of the following expression?
+<p><tt>Math.floor(Math.min(-4.1, -4.8));</tt>
+C-----
+SD
+A-----
+A) -4 (an <tt>int</tt>)
+A-----
+B) -4.0 (a <tt>double</tt>)
+A-----
+C) -5 (an <tt>int</tt>)
+A-----
+D) -5.0 (a <tt>double</tt>)
+E-----
+<tt>Math.min(-4.1, -4.8)</tt> is -4.8. <tt>Math.floor(-4.8)</tt> is the next-smallest integer, converted to a <tt>double</tt>.
+Q-----
+Which of the following statements is true?
+C-----
+SA
+A-----
+A) The <tt>trim()</tt> method removes leading and trailing whitespace from a string.
+A-----
+B) The <tt>trim()</tt> method removes all whitespace from a string.
+E-----
+A is the definition of <tt>trim()</tt>; it has no effect on whitespace in the middle of a string.
+Q-----
+What is <tt>Math.min(Math.floor(-1.5), Math.ceil(-1.5))</tt> ?
+C-----
+SD
+A-----
+A) -1 (an <tt>int</tt>)
+A-----
+B) -1.0 (a <tt>double</tt>)
+A-----
+C) -2 (an <tt>int</tt>)
+A-----
+D) -2.0 (a <tt>double</tt>)
+E-----
+The <tt>floor()</tt> and <tt>ceil()</tt> methods both return a <tt>double</tt>, so the result of min() will also be a <tt>double</tt>. <tt>Math.floor(-1.5)</tt> is -2.0, and <tt>Math.ceil(-1.5)</tt> is -1.0, so the result of <tt>min()</tt> is -2.0.
+Q-----
+True or false: A list may not contain more than one reference to any one object.
+C-----
+SB
+A-----
+A) True
+A-----
+B) False
+E-----
+False. Duplicate objects are permitted in lists.
+Q-----
+What does the following application print out? (The <tt>size()</tt> method on line 15 returns the number of elements in the collection.)
+<tt><pre>
+ 1. import java.util.*;
+ 2.
+ 3. class Z {
+ 4.   public static void main(String[] args) {
+ 5.     StringBuffer sb1 = new StringBuffer("abcde");
+ 6.     StringBuffer sb2 = new StringBuffer("abcde");
+ 7.     sb2.reverse();
+ 8.     StringBuffer sb3 = new StringBuffer("wxyz");
+ 9.     Set set = new HashSet();
+10.     set.add(sb1);
+11.     set.add(sb1);
+12.     set.add(sb2);
+13.     set.add(sb2);
+14.     set.add(sb3);
+15.     System.out.println(set.size());
+16.   }
+17. }
+</pre></tt>
+C-----
+SA
+A-----
+A) "3"
+A-----
+B) "5"
+E-----
+Sets support uniqueness of contents. The calls on lines 11 and 13 have no effect, because they attempt to add elements that already appear on the set.
+Q-----
+What does the <tt>weightx</tt> field of a <tt>GridBagConstraints</tt> control?
+C-----
+SB
+A-----
+A) How a component becomes wider when its container resizes.
+A-----
+B) How a column becomes wider when its container resizes.
+A-----
+C) How a component becomes taller when its container resizes.
+A-----
+D) How a row becomes taller when its container resizes. 
+E-----
+The <tt>weightx</tt> and <tt>weighty</tt> fields control growth of entire rows and columns, not of individual components. The <tt>weightx</tt> field controls column width growth.
+Q-----
+How many rows are in a container whose layout manager is constructed with the following code?
+<p><tt>new GridLayout(3, 12);</tt>
+C-----
+SA
+A-----
+A) 3
+A-----
+B) 12
+E-----
+The first <tt>int</tt> argument to the constructor is the number of rows; the second argument is the number of columns.
+Q-----
+Which of the following layout managers sometimes or always deliberately honor(s) a component's preferred width when a user resizes the container? Choose all correct options.
+C-----
+MACD
+A-----
+A) Flow
+A-----
+B) Grid
+A-----
+C) Border
+A-----
+D) GridBag
+E-----
+<tt>FlowLayout</tt> always honors preferred width and height. <tt>GridLayout</tt> always dictates width and height, ignoring the component's preferred size. <tt>BorderLayout</tt> honors preferred width for its children at East and West. <tt>GridBagLayout</tt> honors preferred width if a component's fill is NONE or VERTICAL.
+Q-----
+What is the result of attempting to compile and execute the following application?
+<tt><pre>
+ 1.  public class X {
+ 2.    int[] intarr;
+ 3.
+ 4.    public static void main(String[] args) { new X(); }
+ 5.
+ 6.    X() {
+ 7.      int s = 100;
+ 8.      intarr = new int[s];
+ 9.      System.out.println("value = " + intarr[s-1]);
+10.      System.out.println("value = " + intarr[s]);
+11.    }
+12.  }
+</pre></tt>
+C-----
+SE
+A-----
+A) Compiler error on line 8.
+A-----
+B) Compiler error on line 9.
+A-----
+C) Compiler error on line 10.
+A-----
+D) The code compiles, but throws an exception at line 9.
+A-----
+E) The code compiles, but throws an exception at line 10.
+A-----
+F) The code compiles and executes with no exceptions.
+E-----
+The array's size is determined at runtime to be 100, with indices from 0 through 99. Line 10 attempts to access the array with an index of 100, so <tt>ArrayIndexOutOfBoundsException</tt> is thrown.
+Q-----
+Which of these statements is/are true about the following code? Choose all correct options.
+<tt><pre>
+ 1. public class Can {
+ 2.   public static void main(String[] args) {
+ 3.     Can theCan = new Can();
+ 4.     theCan = null;
+ 5.     System.gc();
+ 6.     System.out.println("On line 6 now.");
+ 7.   }
+ 8. }
+</pre></tt>
+C-----
+MC
+A-----
+A) After line 4 executes, the instance of <tt>Can</tt> is garbage collected.
+A-----
+B) After line 5 executes, the instance of <tt>Can</tt> is garbage collected.
+A-----
+C) None of the above.
+E-----
+After line 4, the <tt>Can</tt> instance becomes eligible for garbage collection. There are no guarantees about when garbage collection will take place, even after the call on line 5 to <tt>System.gc()</tt>.
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MBD
+A-----
+A) The most significant bit of a <tt>boolean</tt> is the sign bit.
+A-----
+B) The most significant bit of a <tt>byte</tt> is the sign bit.
+A-----
+C) The most significant bit of a <tt>char</tt> is the sign bit.
+A-----
+D) The most significant bit of a <tt>long</tt> is the sign bit.
+E-----
+The <tt>byte</tt> and <tt>long</tt> types are signed integral types that use two's-complement representation; for these types, the most significant bit is the sign bit. The <tt>boolean</tt> and <tt>char</tt> types are not signed, so they have no sign bit. 
+Q-----
+Which of the following is/are legal Java identifiers? Choose all correct options.
+C-----
+MABD
+A-----
+A) <tt>$1</tt>
+A-----
+B) <tt>Goto</tt>
+A-----
+C) <tt>1$</tt>
+A-----
+D) <tt>BYTE</tt>
+A-----
+E) <tt>break</tt>
+E-----
+A is legal because identifiers must begin with a letter, <tt>$</tt>, or underscore. B is legal because the 'G' is uppercase. C is illegal because it does not begin with a letter, <tt>$</tt>, or underscore. D is legal because it is all uppercase. E is illegal because it is a Java keyword.
+Q-----
+How many <tt>boolean</tt> literal values are there?
+C-----
+SC
+A-----
+A) 0
+A-----
+B) 1
+A-----
+C) 2
+A-----
+D) 3
+A-----
+E) 4
+E-----
+The two literal values are true and false.
+Q-----
+Which of the following is/are legal assignments of a literal value to a <tt>String</tt> variable? Choose all correct options.
+C-----
+MAD
+A-----
+A) <tt>String s = "\"";</tt>
+A-----
+B) <tt>String s = \"abcde\";</tt>
+A-----
+C) <tt>String s = "\u3456\ufde6\u0\u1234";</tt>
+A-----
+D) <tt>String s = "\"\"\"\\\\";</tt>
+E-----
+A is legal; the string consists of a single double-quote character. B is illegal because literal strings must begin and end with a double-quote. C is illegal because <tt>\u</tt> must be followed by exactly 4 hex digits. D is legal; the string consists of three double-quotes followed by two backslashes.
+Q-----
+Consider the following line of code:
+<p><tt>boolean[] b = new boolean[25];</tt>
+<p>After this line executes, which of the following statements is/are true? Choose all correct options.
+C-----
+MBD
+A-----
+A) b[4] is undefined.
+A-----
+B) b[25] does not exist.
+A-----
+C) b[25] is false.
+A-----
+D) b[24] is false.
+A-----
+E) b.size = 25.
+E-----
+The elements b[0] through b[24] are automatically initialized to false. There is no b[25]. There is no <tt>b.size</tt>; the number of elements in the array is <tt>b.length</tt>.
+Q-----
+A final method inside an anonymous inner class declares and constructs an array of <tt>int</tt>. Are the array elements automatically initialized?
+C-----
+SA
+A-----
+A) Yes
+A-----
+B) No
+E-----
+When an array is constructed, its elements are always initialized, no matter what the scope of the array might be.
+Q-----
+In the following code fragment, what is the value of <tt>k</tt> after line 3 executes?
+<tt><pre>
+1. int i = -1;
+2. int j = i &gt;&gt;&gt; 31;
+3. int k = j &amp; 51;
+</pre></tt>
+C-----
+SA
+A-----
+A) 1
+A-----
+B) 0
+A-----
+C) -1
+A-----
+D) A very large negative number
+A-----
+E) A very large positive number
+E-----
+After line 1, since <tt>i</tt> is negative, its most significant (sign) bit is 1. The shift in line 2 shifts the bit all the way to the least significant position, filling the rest of the number with 0's. Thus after line 2, <tt>j</tt> is 1. 1 AND (any odd number) is 1, so the value of <tt>k</tt> is 1.
+Q-----
+In the following code, does line 7 compile?
+<tt><pre>
+1.  class Outside {
+2.    private float i;
+3.    
+4.    void amethod(float j) {
+5.      class Inside {
+6.        void innerFoo() {
+7.          float k = i + j;
+8.          System.out.println("k = " + k);
+9.        }
+10.     }
+11.   }
+12. }
+</pre></tt>
+C-----
+SB
+A-----
+A) Yes
+A-----
+B) No
+E-----
+If an inner class (<tt>Inside</tt>) is contained within an enclosing method (<tt>amethod()</tt>), then the inner class may only access the arguments and variable of the enclosing method which are declared final. Line 7 attempts to read <tt>j</tt>, which is not final.
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MAB
+A-----
+A) An anonymous inner class may declare that it extends any non-final superclass.
+A-----
+B) An anonymous inner class may declare that it implements any one interface.
+A-----
+C) An anonymous inner class may declare that it implements multiple interfaces.
+A-----
+D) An anonymous inner class may declare that it extends any non-final superclass, and also declare that it implements any one interface.
+A-----
+E) An anonymous inner class may declare that it extends any non-final superclass, and also declare that it implements multiple interfaces.
+E-----
+A typical use of an anonymous inner class is the following:
+<p><tt>myButton.addActionListener(new ActionListener() {CLASS DEFINITION});</tt>
+<p>The word following "new" must be the name of a class or the name of an interface; the syntax doesn't provide a way to provide more than one name. So an anonymous inner class may only extend a single superclass or implement a single interface.
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MABD
+A-----
+A) At the moment a thread calls an object's <tt>wait()</tt> method, the thread must own that object's lock.
+A-----
+B) At the moment a thread calls an object's <tt>wait()</tt> method, the thread loses that object's lock.
+A-----
+C) At the moment a waiting thread is notified, it is given the lock of the object for which it was waiting.
+A-----
+D) At any moment, a thread may not be waiting for the lock of more than one object.
+E-----
+A and B are true because the whole point of <tt>wait()</tt> is to force a thread that owns an object's lock to give up the lock and block. C is false: the notified thread must now contend for the object's lock. D is true because after the thread calls <tt>wait()</tt> on the first object, it is no longer running, so it cannot call <tt>wait()</tt> on another object.
+Q-----
+Does the following code compile?
+<tt><pre>
+1. class Parent {
+2.   int i;
+3.   private synchronized(System.out) void zzz() {
+4.     synchronized(System.out) { i = 5; }
+5.   }
+6. }
+</pre></tt>
+C-----
+SB
+A-----
+A) Yes
+A-----
+B) No
+E-----
+When you synchronize an entire method (rather than synchronizing a block of code within a method), you may not specify an object whose lock must be acquired; that syntax is illegal. The object on which to synchronize is (implicitly) the <tt>this</tt> object, or the <tt>Class</tt> object in the case of a static method.
+Q-----
+What happens when you try to compile and run the following application? Choose all correct options.
+<tt><pre>
+ 1. class Z {
+ 2.   public static void main(String[] args) {
+ 3.     new Z();
+ 4.   }
+ 5.
+ 6.   Z() {
+ 7.     Z alias1 = this;
+ 8.     Z alias2 = this;
+ 9.     synchronized(alias1) {
+10.       try {
+11.         alias2.wait();
+12.         System.out.println("DONE WAITING");
+13.       }
+14.       catch (InterruptedException e) {
+15.         System.out.println("INTERRUPTED");
+16.       }
+17.       catch (Exception e) {
+18.         System.out.println("OTHER EXCEPTION");
+19.       }
+20.       finally {
+21.         System.out.println("FINALLY");
+22.       }
+23.     }
+24.     System.out.println("ALL DONE");
+25.   }
+26. }
+</pre></tt>
+C-----
+MB
+A-----
+A) Compiler error.
+A-----
+B) The application compiles but doesn't print anything.
+A-----
+C) The application prints "DONE WAITING".
+A-----
+D) The application prints "INTERRUPTED".
+A-----
+E) The application prints "OTHER EXCEPTION".
+A-----
+F) The application prints "FINALLY".
+A-----
+G) The application prints "ALL DONE".
+E-----
+The compiler requires that <tt>wait()</tt> must be called in synchronized code; at runtime, the current thread must own the lock of the object on which it is invoking <tt>wait()</tt>. Both of these conditions are met, since <tt>alias1</tt> and <tt>alias2</tt> are references to the same object. Nothing out of the ordinary happens. The current thread gets to the <tt>wait()</tt> call, and never gets notified, so it stays in <tt>wait()</tt> forever.
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MC
+A-----
+A) If two threads with different priorities are ready to run, the thread with the higher priority will be run first.
+A-----
+B) If two threads with equal priorities are ready to run, the thread that became ready first will be run first.
+A-----
+C) Neither of the above is true.
+E-----
+The JVM spec does not require either of these perfectly reasonable behaviors. Actual behavior is platform-dependent.
+Q-----
+True or false: All methods in all event listener interfaces in the <tt>java.awt.event</tt> package are public.
+C-----
+SA
+A-----
+A) True
+A-----
+B) False
+E-----
+By definition, all the methods in an interface are public.
+Q-----
+Assume that the class <tt>Adj</tt> implements the <tt>AdjustmentListener</tt> interface. The following code fragment constructs a <tt>Scrollbar</tt> and gives it some instances of <tt>Adj</tt> to be its adjustment listeners. When the scrollbar is adjusted, which listener is the first one to receive the <tt>adjustmentValueChanged()</tt> method?
+<tt><pre>
+Scrollbar s = new Scrollbar();
+Adj a1 = new Adj();
+Adj a2 = new Adj();
+Adj a3 = new Adj();
+s.addAdjustmentListener(a1);
+s.addAdjustmentListener(a2);
+s.addAdjustmentListener(a3);
+a.removeAdjustmentListener(a1);
+s.removeAdjustmentListener(a2);
+s.addAdjustmentListener(a2);
+s.addAdjustmentListener(a1);
+</pre></tt>
+C-----
+SD
+A-----
+A) a1
+A-----
+B) a2
+A-----
+C) a3
+A-----
+D) There is no guarantee as to which listener will be first.
+E-----
+The event model provides no guarantees as to the order in which listeners will be notified.
+Q-----
+What happens when you try to compile and run the following application?
+<tt><pre>
+ 1. import java.io.*;
+ 2. class C {
+ 3.   public static void main(String[] args) {
+ 4.     try {
+ 5.       RandomAccessFile raf = 
+ 6.         new RandomAccessFile("f", "rw");
+ 7.       DataOutputStream dos = new DataOutputStream(raf);
+ 8.       dos.writeFloat(-5.6f);
+ 9.       dos.close();
+10.       DataInputStream dis = new DataInputStream(raf);
+11.       float f = dis.readFloat();
+12.       dis.close();
+13.       raf.close();
+14.       System.out.println(f);
+15.     }
+16.     catch (IOException e) { System.out.println("Oops"); }
+17.   }
+18. }
+</pre></tt>
+C-----
+SA
+A-----
+A) Compiler error.
+A-----
+B) The program prints out "-5.6".
+A-----
+C) The program prints out a numeric value other than -5.6.
+A-----
+D) The program prints out "Oops".
+E-----
+You cannot chain a <tt>DataInputStream</tt> or a <tt>DataOutputStream</tt> onto a <tt>RandomAccessFile</tt>. Line 7 causes a compiler error.
+Q-----
+True or false : An instance of the <tt>java.io.Directory</tt> class can represent a file or a directory.
+C-----
+SB
+A-----
+A) True
+A-----
+B) False
+E-----
+There is no such class as <tt>java.io.Directory</tt>.
+Q-----
+The following lines of code all involve assignment and casting. Which line(s) would fail to compile if the cast were omitted? Choose all correct options.
+C-----
+MBC
+A-----
+A) <tt>char c = 'c';   int i = (int)c;</tt>
+A-----
+B) <tt>double d = 12.34;   long lon = (long)d;</tt>
+A-----
+C) <tt>float f = 12.34f;   long lon = (long)f;</tt>
+A-----
+D) <tt>byte b = (byte)3;</tt>
+E-----
+The cast in A is not needed because <tt>int</tt> is wider than <tt>char</tt>. The cast in B is required because <tt>long</tt> is narrower than <tt>double</tt>. The cast in C is also required, because <tt>long</tt> is also narrower than <tt>float</tt>. Remember that "narrow" in the context of casting refers to the range, not precision. Assigning <tt>long</tt> to <tt>float</tt> can lose precision, but not overall magnitude, whereas casting <tt>float</tt> to <tt>long</tt> might result in a number entirely unrelated to the original. The cast in D is not required because casting is not necessary when assigning an "in-range" literal value to a <tt>byte</tt>, <tt>short</tt>, or <tt>char</tt>.
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MAB
+A-----
+A) The <tt>double</tt> type is wider than the <tt>int</tt> type.
+A-----
+B) The <tt>long</tt> type is wider than the <tt>char</tt> type.
+A-----
+C) The <tt>char</tt> type is wider than the <tt>short</tt> type.
+A-----
+D) The <tt>short</tt> type is wider than the <tt>char</tt> type.
+E-----
+A and B are true and easy to understand. Neither <tt>char</tt> nor <tt>short</tt> is wider than the other type, since their ranges are disjoint (<tt>short</tt> can have negative values, <tt>char</tt> can be greater than 32767).
+Q-----
+In the following code, what are the legal types for the variable <tt>vari</tt>, which is declared and constructed on line 11? Just think about the type of <tt>vari</tt>; assume the declaration and construction on line 11 are legal. Choose all correct options.
+<tt><pre>
+ 1. class Fruit {}
+ 2. class Apple extends Fruit { }
+ 3. interface Squeeze {}
+ 4. class Citrus extends Fruit implements Squeeze {}
+ 5. class Orange extends Citrus {}
+ 6.
+ 7. class NavelOrange extends Orange {
+ 8.   static void foo(Citrus c) { }
+ 9.
+10.   public static void main(String[] args) {
+11.     ??? vari = ???;
+12.     foo(vari);
+13.   }
+14. }
+</pre></tt>
+C-----
+MDEF
+A-----
+A) <tt>Fruit</tt>
+A-----
+B) <tt>Apple</tt>
+A-----
+C) <tt>Squeeze</tt>
+A-----
+D) <tt>Citrus</tt>
+A-----
+E) <tt>Orange</tt>
+A-----
+F) <tt>NavelOrange</tt>
+E-----
+The declared argument type (line 8) is <tt>Citrus</tt>, so the legal types for <tt>vari</tt> on line 11 are <tt>Citrus</tt> and its subclasses.
+Q-----
+What does the following code print out?
+<tt><pre>
+1. try {
+2.   double d = -12.34 % -5;
+3.   System.out.println("d = " + d);
+4. }
+5. catch (Exception e) { System.out.println("TROUBLE"); }
+</pre></tt>
+C-----
+SD
+A-----
+A) d = 2
+A-----
+B) d = -2
+A-----
+C) d = 2.34
+A-----
+D) d = -2.34
+A-----
+E) TROUBLE
+E-----
+We repeatedly subtract the right operand (-5) from the left operand (-12.34), until the magnitude of the result is less than the magnitude of the right operand (-3). Thus -12.34 - (-5) = -7.34  and then -7.34 - (-5) = -2.34.
+Q-----
+You are given the class file for a class called <tt>Secret</tt>. However, you do not have the source code or any information about the internals of the <tt>Secret</tt> class. You do know that the class has a protected <tt>int</tt> variable called <tt>i</tt>. What does the following application print out?
+<tt><pre>
+ 1. class Mine extends Secret {
+ 2.   public static void main(String[] args) {
+ 3.      Mine m1 = new Mine(); m1.i = 5;
+ 4.      Mine m2 = new Mine(); m1.i = 5;
+ 5.      if (m1.equals(m2))
+ 6.        System.out.println("YES");
+ 7.      else
+ 8.        System.out.println("NO");
+ 9.   }
+10. }
+</pre></tt>
+C-----
+SC
+A-----
+A) YES
+A-----
+B) NO
+A-----
+C) It is impossible to know.
+E-----
+The result of the call to <tt>equals()</tt> on line 5 depends on how the method was written in the <tt>Secret</tt> superclass.
+Q-----
+What happens when you attempt to compile the following code?
+<tt><pre>
+1. class A           {  static void foo() {};         }
+2. class B extends A {  public static void foo() {};  }
+</pre></tt>
+C-----
+SC
+A-----
+A) Compiler error at line 1.
+A-----
+B) Compiler error at line 2.
+A-----
+C) No compiler error.
+E-----
+A static method may only be overridden by another static method; that is what is done here, so the code compiles.
+Q-----
+Which access is more restrictive: <tt>protected</tt> or "default" (where "default" is the access when you don't explicitly specify <tt>private</tt>, <tt>protected</tt>, or <tt>public</tt>)?
+C-----
+SB
+A-----
+A) <tt>protected</tt> is more restrictive.
+A-----
+B) "default" is more restrictive.
+E-----
+Default access is restricted to the same package. <tt>protected</tt> access is same package, plus subclasses in any package.
+Q-----
+You create a class called <tt>A</tt> with a final static variable called <tt>z</tt>. Is it possible to have three instances of <tt>A</tt>, each of which has a different value for <tt>z</tt>?
+C-----
+SB
+A-----
+A) Yes
+A-----
+B) No
+E-----
+Since <tt>z</tt> is static, there is only one instance of the variable.
+Q-----
+True or false: An abstract class that does not contain any non-abstract methods is the same as an interface.
+C-----
+SB
+A-----
+A) True
+A-----
+B) False
+E-----
+A class such as the one described in the problem is still a class; it may be extended but not implemented. An interface may only be implemented, not extended. An interface can define only static final variables, while an abstract class can declare any type of variable. Further, you can only extend one class, whether it is abstract or not, but can implement any number of interfaces.
+Q-----
+Given the following code, which access modifiers can legally be placed before aMethod() on line 6? Choose all correct options.
+<tt><pre>
+1. class Thing {
+2.   void aMethod() { }
+3. }
+4.
+5. class SubThing extends Thing {
+6.   void aMethod() { }
+7. }
+</pre></tt>
+C-----
+MAB
+A-----
+A) <tt>public</tt>
+A-----
+B) <tt>protected</tt>
+A-----
+C) <tt>private</tt>
+E-----
+A method may not be overridden to be more <tt>private</tt>. <tt>public</tt> and <tt>protected</tt> are more public than default access.
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MC
+A-----
+A) A final class must contain at least one final method.
+A-----
+B) If a class contains one or more final methods, then the class must be declared final.
+A-----
+C) Neither of the above is true.
+E-----
+Neither A nor B is a requirement.
+Q-----
+Does this code compile?
+<tt><pre>
+ 1.  class SubEx extends Exception { }
+ 2.
+ 3.  class Parent {
+ 4.    protected void foo(int i) throws Exception {
+ 5.      if (i &gt; 20)
+ 6.        throw new Exception();
+ 7.    }
+ 8.  }
+ 9.
+10.  class Kid extends Parent {
+11.    void foo(int i) throws SubEx {
+12.      if (i &lt; 20)
+13.        throw new SubEx();
+14.    }
+15.  }
+</pre></tt>
+C-----
+SB
+A-----
+A) Yes
+A-----
+B) No
+E-----
+The problem here is the <tt>protected</tt> modifier on line 4. Methods may not be overridden to be more private, so there is a compiler error on line 11.
+Q-----
+Consider the following class definition:
+<p><tt>class Parent {   protected void abcde(int i) { }   }</tt>
+<p>Which of the following methods would be allowed in a subclass of <tt>Parent</tt>? Choose all correct options.
+C-----
+MBCE
+A-----
+A) <tt>private void abcde(int i) { }</tt>
+A-----
+B) <tt>private void abcde(float i) { }</tt>
+A-----
+C) <tt>public void abcde(int i) { }</tt>
+A-----
+D) <tt>protected float abcde(int i)  { return 1.2f; }</tt>
+A-----
+E) <tt>private float abcde(float i)  { return 1.2f; }</tt>
+E-----
+A is not allowed because methods may not be overridden to be more private. B and E are not examples of overriding, because they take a <tt>float</tt> argument, so the methods are not restricted. C makes the method more public, which is allowed. D is illegal because only the return type has been changed.
+Q-----
+Consider the following class definition:
+<tt><pre>
+1. public class Sub extends Supe {
+2.   int i,j, k;
+3.   Sub(int x)    { i=1; j=2; k=3; }
+4.   Sub(int x, y) { super(x); k=3; }
+5. }
+</pre></tt>
+Which of the following forms of constructor must exist in the <tt>Supe</tt> class? Choose all correct options.
+C-----
+MAB
+A-----
+A) <tt>Supe()</tt>
+A-----
+B) <tt>Supe(int i)</tt>
+A-----
+C) <tt>Supe(int i, int j)</tt>
+A-----
+D) <tt>Supe(int i, int j, int k)</tt>
+E-----
+The no-args <tt>Supe</tt> contructor is called invisibly at the beginning of the <tt>Sub</tt> no-args constructor on line 3. The one-<tt>int</tt> <tt>Supe</tt> contructor is called explicitly at the beginning of the <tt>Sub</tt> two-<tt>int</tt>s constructor on line 3.
+Q-----
+What happens when you try to compile and execute the following application with the command-line argument "1"? Choose all correct options.
+<tt><pre>
+ 1. class Switcheroo {
+ 2.   public static void main(String[] args) {
+ 3.     int i = 0;
+ 4.     try {
+ 5.       i = Integer.parseInt(args[0]);
+ 6.     }
+ 7.     catch (Exception e) { }
+ 8.
+ 9.     switch (i) {
+10.       case 0:
+11.         System.out.println("zero");
+12.       case 1:
+13.         System.out.println("one");
+14.       default:
+15.         System.out.println("default");
+16.     }
+17.   }
+18. }
+</pre></tt>
+C-----
+MCD
+A-----
+A) Compiler error.
+A-----
+B) The program prints "zero".
+A-----
+C) The program prints "one".
+A-----
+D) The program prints "default".
+E-----
+The switch transfers control to line 13, which prints "one". The case has no break statement, so control falls through to the default case, which prints "default".
+Q-----
+Which of the following statements is/are true? Choose all correct options.
+C-----
+MB
+A-----
+A) When execution encounters a "while" loop, the body of the loop will always execute at least once.
+A-----
+B) When execution encounters a "do-while" loop, the body of the loop will always execute at least once.
+A-----
+C) When execution encounters a "for" loop, the body of the loop will always execute at least once.
+E-----
+The "while" and "for" loops always check their condition before entering the loop body. Only the "do-while" loop checks after executing the body.
+Q-----
+You have been given a design document for a system that is to be implemented in Java. The document states:
+<p>"A snack has a weight, a price, and a calorie count. A bagel is a snack that has a flag indicating if it has sesame seeds, and a textual description."
+<p>If the <tt>Snack</tt> class has already been defined, which of the following fields would be appropriate for inclusion as members of the <tt>Bagel</tt> class?
+C-----
+MEF
+A-----
+A) <tt>Snack theSnack;</tt>
+A-----
+B) <tt>float price;</tt>
+A-----
+C) <tt>int calories;</tt>
+A-----
+D) <tt>Bagel theBagel;</tt>
+A-----
+E) <tt>boolean hasSesameSeeds;</tt>
+A-----
+F) <tt>String description;</tt>
+E-----
+E and F are correct. The <tt>Bagel</tt> class is a subclass of the <tt>Snack</tt> class, and as such should extend <tt>Snack</tt>, rather than containing an instance of <tt>Snack</tt>. B and C (<tt>price</tt> and <tt>calories</tt>) should be members of the <tt>Snack</tt> class and inherited by the <tt>Bagel</tt> subclass. D would mean that the <tt>Bagel</tt> class has a reference to a <tt>Bagel</tt> instance, which is not required. E and F (<tt>hasSesameSeeds</tt> and <tt>description</tt>) are called for in the spec; these are the correct items.
+Q-----
+Consider the following class definition:
+<tt><pre>
+public class Parent {
+  final void zzz() { }
+}
+</pre></tt>
+Which of the following methods may appear in a subclass of <tt>Parent</tt>, when the subclass is in a different package from <tt>Parent</tt>? Choose all correct options.
+C-----
+MBCD
+A-----
+A) <tt>void zzz() { }</tt>
+A-----
+B) <tt>void zzz(int j) { }</tt>
+A-----
+C) <tt>final void zzz(float f) { }</tt>
+A-----
+D) <tt>public final void zzz(double d) { }</tt>
+E-----
+A final method may not be overridden; thus A is illegal. The methods in B, C, and D have different argument lists from the superclass version of the method, so B, C, and D are not examples of overriding; they are all legal.
+Q-----
+Consider the following class definitions:
+<tt><pre>
+class X  extends Exception { }
+class Y1 extends X { }
+class Y2 extends Y1 { }
+class Z1 extends Exception { }
+class Z2 extends Z1 { }
+
+class Parent {
+  void aMethod() throws X {
+    throw new X();
+  }
+}
+</pre></tt>
+Which of the following exception types can be legally thrown from a method in a subclass of <tt>Parent</tt>, if the method's declaration begins "<tt>void aMethod() ...</tt>"?
+C-----
+MBCD
+A-----
+A) <tt>Exception</tt>
+A-----
+B) <tt>X</tt>
+A-----
+C) <tt>Y1</tt>
+A-----
+D) <tt>Y2</tt>
+A-----
+E) <tt>Z1</tt>
+A-----
+F) <tt>Z2</tt>
+E-----
+The subclass's version of the method may throw exception types that are the same as, or subclasses of, the exception types thrown by the superclass's version. Here the superclass version throws <tt>X</tt>, so the subclass's version may throw <tt>X</tt> or any subclasses of <tt>X</tt>.
+X-----
